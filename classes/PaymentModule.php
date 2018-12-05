@@ -844,7 +844,7 @@ abstract class PaymentModuleCore extends Module
 
                         $orderLanguage = new Language((int) $order->id_lang);
 
-                        if (Validate::isEmail($this->context->customer->email)) {
+                        if ($order_status->send_email && Validate::isEmail($this->context->customer->email)) {
                             Mail::Send(
                                 (int) $order->id_lang,
                                 'order_conf',
